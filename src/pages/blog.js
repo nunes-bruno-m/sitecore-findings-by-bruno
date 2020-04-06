@@ -8,12 +8,12 @@ import styles from './blog.module.scss';
 const Blog = () => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulBlogPost(sort: { fields: date, order: DESC }) {
+      allContentfulBlogPost(sort: { fields: createdAt, order: DESC }) {
         edges {
           node {
             slug
             title
-            date(formatString: "MMMM Do, YYYY")
+            createdAt(formatString: "MMMM Do, YYYY")
           }
         }
       }
