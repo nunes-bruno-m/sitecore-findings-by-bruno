@@ -10,6 +10,7 @@ export const query = graphql`
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       createdAt(formatString: "MMMM Do, YYYY")
+      updatedAt(formatString: "MMMM Do, YYYY")
       description {
         json
       }
@@ -32,8 +33,8 @@ const BlogPost = ({ data }) => {
     <Layout>
       <Head title={data.contentfulBlogPost.title} />
       <h1>{data.contentfulBlogPost.title}</h1>
-      <p>Published on {data.contentfulBlogPost.date}</p>
-      {documentToReactComponents(data.contentfulBlogPost.body.json, options)}
+      <p>Published on {data.contentfulBlogPost.createdAt} (updated on {data.contentfulBlogPost.updatedAt})</p>
+      {documentToReactComponents(data.contentfulBlogPost.description.json, options)}
     </Layout>
   );
 };

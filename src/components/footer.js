@@ -18,7 +18,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <p>
         Created by{' '}
-        <a href="https://github.com/safdarjamal">
+        <a href="https://github.com/nunes-bruno-m">
           {data.site.siteMetadata.author}
         </a>{' '}
         © 2020
